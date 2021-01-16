@@ -1,0 +1,8 @@
+.original__movies {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+img {
+  width: 200px;
+}
