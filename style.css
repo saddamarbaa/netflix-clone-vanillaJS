@@ -1,3 +1,5 @@
+/********** Start Base Styles (Generic) **********/
+
 * {
   padding: 0;
   margin: 0;
@@ -14,7 +16,34 @@ body {
   background-color: var(--black);
   color: var(--white);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0rem;
 }
+
+/********** Header  **********/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 15px;
+}
+
+header .logo > img {
+  width: 120px;
+}
+
+header .profile > img {
+  width: 48px;
+}
+
+/********** Main content  **********/
 
 .movies__container {
   display: flex;
