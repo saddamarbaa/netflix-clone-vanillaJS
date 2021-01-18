@@ -1,6 +1,10 @@
-- Create HTML Structure
-- TODO
-- Create Header
+- Create a Header
+- Finish Up the movies section
+- Understanding Promises, API, Fetch
+- Pull in Movies From APIS
+
+- Create HTML Structure -> DONE
+- Create Header -> DONE
 - Create Style.css
 - Create Featured Section
 - Create Netflix Originals
