@@ -1,8 +1,64 @@
-.original__movies {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* CSS variables */
+:root {
+  --white: #fff;
+  --black: #000;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.movies__container {
   display: flex;
   flex-wrap: wrap;
 }
 
 img {
   width: 200px;
+}
+
+.featured {
+  height: 400px;
+  background: url("https://image.tmdb.org/t/p/original//3lBDg3i6nn5R2NKFCJ6oKyUo2j5.jpg")
+    no-repeat center center/cover;
+  padding: 0 0 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured h1 {
+  font-size: 50px;
+}
+
+.featured .featured__buttons button {
+  font-size: 16px;
+  color: var(--white);
+  background-color: rgba(109, 109, 110, 0.7);
+  border: none;
+  padding: 8px 24px;
+  border-radius: 4px;
+}
+
+.featured .featured__buttons .button__play {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.featured .featured__buttons .button__play i {
+  margin-right: 2px;
+}
+.featured .featured__description {
+  max-width: 350;
+  font-weight: 400;
+  /* font-size: 1.4vw; */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
 }
