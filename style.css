@@ -13,10 +13,9 @@
 }
 
 body {
-  background-color: var(--black);
+  background-color: #111;
   color: var(--white);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0rem;
 }
 
 /********** Header  **********/
@@ -44,16 +43,6 @@ header .profile > img {
 }
 
 /********** Main content  **********/
-
-.movies__container {
-  display: flex;
-  overflow-x: scroll;
-  padding-left: 50px;
-}
-
-img {
-  width: 200px;
-}
 
 .featured {
   height: 400px;
@@ -91,7 +80,7 @@ img {
   );
 }
 
-.featured h1 {
+.featured h2 {
   font-size: 50px;
   margin: 0;
   z-index: 10;
@@ -115,6 +104,9 @@ img {
   color: var(--black);
 }
 
+h2 {
+  padding: 20px 0;
+}
 .featured .featured__buttons .button__play i {
   margin-right: 6px;
 }
@@ -124,4 +116,37 @@ img {
   font-weight: 400;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
   z-index: 10;
+}
+
+.original__movies,
+.movies__container {
+  padding-left: 50px;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.original__movies::-webkit-scrollbar {
+  display: none;
+}
+
+.original__movies img {
+  margin-right: 10px;
+  height: 250px;
+  width: auto;
+}
+
+.original__movies img,
+.movies__container img {
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+
+.original__movies img:hover,
+.movies__container img:hover {
+  transform: scale(1.1);
+}
+
+.movies__container img {
+  margin-right: 10px;
+  width: 200px;
 }
