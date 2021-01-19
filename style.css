@@ -122,7 +122,7 @@ h2 {
 .movies__container {
   padding-left: 50px;
   display: flex;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
 }
 
 .original__movies::-webkit-scrollbar {
