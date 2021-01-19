@@ -41,31 +41,29 @@ function addMovies(movies, moveEl) {
 }
 
 function fetchMovies() {
-  let url =
-    "https://api.themoviedb.org/3/discover/tv?api_key=19f84e11932abbc79e6d83f82d6d1045&with_networks=213";
-  fetch(url)
+  fetch(
+    "https://api.themoviedb.org/3/discover/tv?api_key=19f84e11932abbc79e6d83f82d6d1045&with_networks=213"
+  )
     .then((response) => {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error(
-          "Looks like there was a problem. Status Code: " + response.status
-        );
+        // throw new Error(response.statusText);
+        throw new Error("Something went wrong ");
       }
     })
     .then((data) => {
-      // console.log(data);
-      addMovies(data, originalMovies);
+      console.log(data);
     })
-    .catch((error_data) => {
-      console.log(error_data);
-      // console.log("Fetch Error :-S" + error_data);
+    .catch((error) => {
+      console.log("Fetch Error :-S", error);
     });
 }
 
 // function call
 
 window.onload = () => {
+  fetchMovies();
   fetchMovies();
   // addMovies(originalMovies, img1);
   // addMovies(tredingNowMovies, img2);
