@@ -3,6 +3,10 @@
 - Understanding Promises, API, Fetch
 - Pull in Movies From APIS
 
+- Horizontal scroll for the movies
+- Retreive the other movie from API
+- Add the hover effect to individual movies
+
 - Create HTML Structure -> DONE
 - Create Header -> DONE
 - Create Style.css
