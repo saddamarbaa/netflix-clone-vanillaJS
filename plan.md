@@ -1,11 +1,11 @@
-- Create a Header
-- Finish Up the movies section
-- Understanding Promises, API, Fetch
-- Pull in Movies From APIS
+- Create a Header => DONE
+- Finish Up the movies section => DONE
+- Understanding Promises, API, Fetch => DONE
+- Pull in Movies From APIS => DONE
 
-- Horizontal scroll for the movies
-- Retreive the other movie from API
-- Add the hover effect to individual movies
+- Horizontal scroll for the movies => DONE
+- Retreive the other movie from API => DONE
+- Add the hover effect to individual movies => DONE
 
 - Create HTML Structure -> DONE
 - Create Header -> DONE
