@@ -1,4 +1,29 @@
-// Selectors
+// function call
+
+window.onload = () => {
+  getOriginalsMovies();
+  getTrendingNowMovies();
+  getTopRatedMovies();
+};
+
+//  Event Listener and Functions
+
+//  Add Movies to the front end
+
+function showMovies(movies, element_selector, path_type) {
+  // console.log(movies);
+  // console.log(element_selector);
+  // console.log(path_type);
+
+  const moviesEl = document.querySelector(element_selector);
+
+  movies.forEach((movie) => {
+    const image = `<img src=https://image.tmdb.org/t/p/original${movie[path_type]} alt = "img" >`;
+
+    // console.log(image);
+    moviesEl.innerHTML += image;
+  });
+}
 
 // fetch movies data from (TMDb) API
 
@@ -21,24 +46,6 @@ function fetchMovies(url, element_selector, path_type) {
     });
 }
 
-//  Event Listener and Functions
-
-//  Add Movies to the front end
-
-function showMovies(movies, element_selector, path_type) {
-  // console.log(movies);
-  // console.log(element_selector);
-  // console.log(path_type);
-
-  const moviesEl = document.querySelector(element_selector);
-  movies.forEach((movie) => {
-    const image = `<img src=https://image.tmdb.org/t/p/original${movie[path_type]} alt = "img" >`;
-
-    // console.log(image);
-    moviesEl.innerHTML += image;
-  });
-}
-
 function getOriginalsMovies() {
   const url =
     "https://api.themoviedb.org/3/discover/tv?api_key=19f84e11932abbc79e6d83f82d6d1045&with_networks=213";
@@ -56,17 +63,3 @@ function getTopRatedMovies() {
     "https://api.themoviedb.org/3/movie/top_rated?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&page=1";
   fetchMovies(url, ".topRated__movies", "backdrop_path");
 }
-
-// function getMyListMovies() {
-// 	const url =
-// 			"https://api.themoviedb.org/3/movie/top_rated?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&page=1";
-// 	fetchMovies(url, ".myList__movies", "backdrop_path");
-// }
-
-// function call
-
-window.onload = () => {
-  getOriginalsMovies();
-  getTrendingNowMovies();
-  getTopRatedMovies();
-};
