@@ -7,6 +7,12 @@
 - Retreive the other movie from API => DONE
 - Add the hover effect to individual movies => DONE
 
+- Show the trailer for the user when they select a movie
+- find a way to grab the movie(YouTube, Movie, Database, API, IMDB)
+- Disable user Ineration
+- Show the movie in the modal (load youtube video)
+- show background back
+
 - Create HTML Structure -> DONE
 - Create Header -> DONE
 - Create Style.css
