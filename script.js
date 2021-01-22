@@ -1,33 +1,61 @@
-// Functions
+// Functions and Event Listener
 
-function getMovieTrailer(id) {
+async function getMovieTrailer(id) {
+  // read our JSON
   const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US`;
-  fetch(url)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        // throw new Error(response.statusText);
-        throw new Error("Something went wrong");
-      }
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.log("Fetch Error :-S", error);
-    });
+
+  // wait until the promise resolves (*)
+  return await fetch(url).then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      // throw new Error (response.statusText);
+      throw new Error("Something went wrong");
+    }
+  });
 }
 
-//  Event Listener
+const setTrailer = (trailers) => {
+  const iframe = document.getElementById("movieTrailer");
+  const movieNotFound = document.querySelector(".movieNotFound");
+  if (trailers.length > 0) {
+    movieNotFound.classList.add("d-none");
+    iframe.classList.remove("d-none");
+    iframe.src = `https://www.youtube.com/embed/${trailers[0].key}`;
+  } else {
+    iframe.classList.add("d-none");
+    movieNotFound.classList.remove("d-none");
+  }
+};
 
-const handleMovieSelection = (e, movie) => {
+const handleMovieSelection = (e) => {
   const id = e.target.getAttribute("data-id");
+  const iframe = document.getElementById("movieTrailer");
+  // console.log(e);
   // console.log(e.target);
-  // getMovieTrailer(id);
+  // console.log(id);
+  // console.log(iframe);
+
+  // here we need the id of the movie
+  getMovieTrailer(id).then((data) => {
+    // console.log(data);
+
+    const results = data.results;
+    const youtubeTrailers = results.filter((result) => {
+      if (result.site == "YouTube" && result.type == "Trailer") {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    // console.log(youtubeTrailers);
+    setTrailer(youtubeTrailers);
+  });
 
   // open modal
   $("#trailerModal").modal("show");
+  // we need to call the api with the ID
 };
 
 //  Add Movies to the front end
@@ -39,6 +67,7 @@ function showMovies(movies, element_selector, path_type) {
   // console.log(movie.results);
 
   const moviesEl = document.querySelector(element_selector);
+
   for (let movie of movies.results) {
     // console.log(movie.results);
     const imageElement = document.createElement("img");
@@ -46,6 +75,7 @@ function showMovies(movies, element_selector, path_type) {
     imageElement.src = `https://image.tmdb.org/t/p/original${movie[path_type]}`;
     // console.log(imageElement);
 
+    // Event Listener to each image on click
     imageElement.addEventListener("click", (e) => {
       handleMovieSelection(e);
     });
@@ -97,6 +127,6 @@ function getTopRatedMovies() {
 
 window.onload = () => {
   getOriginalsMovies();
-  // getTrendingNowMovies();
-  // getTopRatedMovies();
+  getTrendingNowMovies();
+  getTopRatedMovies();
 };
