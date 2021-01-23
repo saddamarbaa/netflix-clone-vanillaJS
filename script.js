@@ -1,5 +1,13 @@
-// Functions and Event Listener
+// Called whe the page is loaded
 
+window.onload = () => {
+  getOriginalsMovies();
+  getTrendingNowMovies();
+  getTopRatedMovies();
+  getGenres();
+};
+
+// Functions and Event Listener
 async function getMovieTrailer(id) {
   // read our JSON
   const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US`;
@@ -26,36 +34,6 @@ const setTrailer = (trailers) => {
     iframe.classList.add("d-none");
     movieNotFound.classList.remove("d-none");
   }
-};
-
-const handleMovieSelection = (e) => {
-  const id = e.target.getAttribute("data-id");
-  const iframe = document.getElementById("movieTrailer");
-  // console.log(e);
-  // console.log(e.target);
-  // console.log(id);
-  // console.log(iframe);
-
-  // here we need the id of the movie
-  getMovieTrailer(id).then((data) => {
-    // console.log(data);
-
-    const results = data.results;
-    const youtubeTrailers = results.filter((result) => {
-      if (result.site == "YouTube" && result.type == "Trailer") {
-        return true;
-      } else {
-        return false;
-      }
-    });
-
-    // console.log(youtubeTrailers);
-    setTrailer(youtubeTrailers);
-  });
-
-  // open modal
-  $("#trailerModal").modal("show");
-  // we need to call the api with the ID
 };
 
 //  Add Movies to the front end
@@ -105,6 +83,48 @@ function fetchMovies(url, element_selector, path_type) {
     });
 }
 
+// fetch movies genres from (TMDb) API
+
+function getGenres() {
+  const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=92bcc12799d8068995c7c9650f414f3e&language=en-US`;
+
+  fetch(url)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        // throw new Error(response.statusText);
+        throw new Error("Something went wrong");
+      }
+    })
+    .then((data) => {
+      // object with List of official genres for movies
+      // console.log(data);
+      showMoviesGenres(data);
+    })
+    .catch((error) => {
+      console.log("Fetch Error :-S", error);
+    });
+}
+
+function showMoviesGenres(genres) {
+  // console.log(genres);
+
+  genres.genres.forEach(function (genre) {
+    console.log(genre);
+    // get list of movies
+    // var movies = fetchMoviesBasedOnGenre(genre.id);
+    // movies
+    //   .then(function (movies) {
+    //     showMoviesBasedOnGenre(genre.name, movies);
+    //   })
+    //   .catch(function (error) {
+    //     console.log("BAD BAD", error);
+    //   });
+    // show movies based on genre
+  });
+}
+
 function getOriginalsMovies() {
   const url =
     "https://api.themoviedb.org/3/discover/tv?api_key=19f84e11932abbc79e6d83f82d6d1045&with_networks=213";
@@ -123,10 +143,8 @@ function getTopRatedMovies() {
   fetchMovies(url, ".topRated__movies", "backdrop_path");
 }
 
-// function call
+// the list of official genres for movies.
+// https://api.themoviedb.org/3/genre/movie/list?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US
 
-window.onload = () => {
-  getOriginalsMovies();
-  getTrendingNowMovies();
-  getTopRatedMovies();
-};
+// movies genres
+// https://api.themoviedb.org/3/discover/movie?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=53
