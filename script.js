@@ -83,6 +83,62 @@ function fetchMovies(url, element_selector, path_type) {
     });
 }
 
+function fetchMoviesBasedOnGenre(genreId) {
+  let url = "https://api.themoviedb.org/3/discover/movie?";
+
+  url +=
+    "api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=2";
+
+  url += `&with_genres=${genreId}`;
+  return fetch(url).then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("something went wrong");
+    }
+  }); // returns a promise already
+}
+
+// fetch movies data from (TMDb) API
+
+function fetchMovies(url, element_selector, path_type) {
+  fetch(url)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        // throw new Error(response.statusText);
+        throw new Error("Something went wrong");
+      }
+    })
+    .then((data) => {
+      // console.log(data);
+      showMovies(data, element_selector, path_type);
+    })
+    .catch((error) => {
+      console.log("Fetch Error :-S", error);
+    });
+}
+
+// fetch movies Based genres from (TMDb) API
+
+function fetchMoviesBasedOnGenre(genreId) {
+  let url = "https://api.themoviedb.org/3/discover/movie?";
+
+  url +=
+    "api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=2";
+
+  url += `&with_genres=${genreId}`;
+
+  return fetch(url).then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("something went wrong");
+    }
+  }); // returns a promise already
+}
+
 // fetch movies genres from (TMDb) API
 
 function getGenres() {
@@ -111,16 +167,19 @@ function showMoviesGenres(genres) {
   // console.log(genres);
 
   genres.genres.forEach(function (genre) {
-    console.log(genre);
+    // console.log(genre);
+
     // get list of movies
-    // var movies = fetchMoviesBasedOnGenre(genre.id);
-    // movies
-    //   .then(function (movies) {
-    //     showMoviesBasedOnGenre(genre.name, movies);
-    //   })
-    //   .catch(function (error) {
-    //     console.log("BAD BAD", error);
-    //   });
+    let movies = fetchMoviesBasedOnGenre(genre.id);
+
+    movies
+      .then(function (movies) {
+        console.log(movies);
+        // showMoviesBasedOnGenre(genre.name, movies);
+      })
+      .catch(function (error) {
+        console.log("BAD BAD", error);
+      });
     // show movies based on genre
   });
 }
