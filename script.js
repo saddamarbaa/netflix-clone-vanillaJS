@@ -8,6 +8,7 @@ window.onload = () => {
 };
 
 // Functions and Event Listener
+
 async function getMovieTrailer(id) {
   // read our JSON
   const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US`;
@@ -34,6 +35,27 @@ const setTrailer = (trailers) => {
     iframe.classList.add("d-none");
     movieNotFound.classList.remove("d-none");
   }
+};
+
+const handleMovieSelection = (e) => {
+  const id = e.target.getAttribute("data-id");
+  const iframe = document.getElementById("movieTrailer");
+  // here we need the id of the movie
+  getMovieTrailer(id).then((data) => {
+    const results = data.results;
+    const youtubeTrailers = results.filter((result) => {
+      if (result.site == "YouTube" && result.type == "Trailer") {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    setTrailer(youtubeTrailers);
+  });
+
+  // open modal
+  $("#trailerModal").modal("show");
+  // we need to call the api with the ID
 };
 
 //  Add Movies to the front end
@@ -126,7 +148,7 @@ function fetchMoviesBasedOnGenre(genreId) {
   let url = "https://api.themoviedb.org/3/discover/movie?";
 
   url +=
-    "api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=2";
+    "api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";
 
   url += `&with_genres=${genreId}`;
 
@@ -163,6 +185,42 @@ function getGenres() {
     });
 }
 
+// show Movies to the front end based on their genres
+
+function showMoviesBasedOnGenre(genreName, movies) {
+  // console.log(movies);
+  // console.log(genreName);
+
+  let allMovies = document.querySelector(".movies");
+
+  let genreEl = document.createElement("div");
+  genreEl.classList.add("movies__header");
+  genreEl.innerHTML = `<h2>${genreName}</h2>`;
+
+  let moviesEl = document.createElement("div");
+  moviesEl.classList.add("movies__container");
+  moviesEl.setAttribute("id", genreName);
+
+  for (let movie of movies.results) {
+    let imageElement = document.createElement("img");
+
+    // let { backdrop_path, id } = movie;
+    // console.log("TESTING DESCONSTRUCT:", id, backdrop_path);
+    // imageElement.setAttribute("data-id", id);
+    // imageElement.src = `https://image.tmdb.org/t/p/original${backdrop_path}`;
+
+    imageElement.src = `https://image.tmdb.org/t/p/original${movie["backdrop_path"]}`;
+
+    imageElement.addEventListener("click", (e) => {
+      handleMovieSelection(e);
+    });
+    moviesEl.appendChild(imageElement);
+  }
+
+  allMovies.appendChild(genreEl);
+  allMovies.appendChild(moviesEl);
+}
+
 function showMoviesGenres(genres) {
   // console.log(genres);
 
@@ -172,10 +230,11 @@ function showMoviesGenres(genres) {
     // get list of movies
     let movies = fetchMoviesBasedOnGenre(genre.id);
 
+    // now we have the movies based on genres ready
     movies
       .then(function (movies) {
-        console.log(movies);
-        // showMoviesBasedOnGenre(genre.name, movies);
+        // console.log(movies);
+        showMoviesBasedOnGenre(genre.name, movies);
       })
       .catch(function (error) {
         console.log("BAD BAD", error);
