@@ -1,10 +1,11 @@
 NEXT UP
 
+- CREATE LOGIN FORM FOR NETFLIX CLONE
 - Login logout
 - PlayLists
 
-- Fix the issue with iframe
-- Add genres to Netflix clone
+- Fix the issue with iframe => TODO
+- Add genres to Netflix clone =>DONE
 
 - Create a Header => DONE
 - Finish Up the movies section => DONE
