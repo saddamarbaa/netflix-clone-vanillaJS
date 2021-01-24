@@ -223,7 +223,7 @@ const getTopRatedMovies = () => {
   fetchMovies(url, ".topRated__movies", "backdrop_path");
 };
 
-// the list of official genres for movies.
+// the list of official genres for movies
 // https://api.themoviedb.org/3/genre/movie/list?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US
 
 // movies genres
