@@ -3,6 +3,9 @@ NEXT UP
 - CREATE LOGIN FORM FOR NETFLIX CLONE
 - Login logout
 - PlayLists
+- Create a login form
+- Hash a password
+- Keep User Login
 
 - Fix the issue with iframe => TODO
 - Add genres to Netflix clone =>DONE
