@@ -20,7 +20,6 @@
 
   <!-- Title -->
   <title>Netflix clone</title>
-
 </head>
 <body>
   <div class="background-wrapper">
@@ -29,15 +28,37 @@
   </div>
   <header>
     <div class="logo">
-      <img src="assets/logo.png" alt="logo Img">
+      <img src="assets/logo.png" alt="">
     </div>
     <div class="profile">
-      <img src="assets/profile__logo.png" alt="profile logo">
+      <img src="assets/profile__logo.png" alt="">
     </div>
   </header>
-
-
-
+  <main>
+    <div class="loginContainer">
+      <div class="logingContainer-main">
+        <div>
+          <h1>Sign In</h1>
+        </div>
+        <div class="registered-alert alert alert-success" role="alert">
+          Successfully Registered
+        </div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input name="email" type="email" class="form-control form-control-lg" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input name="password" type="password" class="form-control form-control-lg" id="exampleInputPassword1">
+          </div>
+          <button type="submit" class="mt-4 btn btn-danger btn-lg btn-block ">Submit</button>
+          <a href="/register.html">Register</a>
+        </form>
+      </div>
+    </div>
+  </main>
   <!-- Bootstrap JS Link -->
   <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -48,5 +69,7 @@
 
   <!-- the Main Js File -->
   <script src="script.js"></script>
+  <!-- login Js File -->
+  <script src="login.js"></script>
 </body>
 </html>
