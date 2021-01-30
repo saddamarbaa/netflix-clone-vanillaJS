@@ -1,6 +1,7 @@
 NEXT UP
 
-- CREATE LOGIN FORM FOR NETFLIX CLONE
+- Grab the data
+- Create a Login Form
 - Login logout
 - PlayLists
 - Create a login form
