@@ -20,6 +20,9 @@ function checkIfLoggedIn() {
   }
 }
 
+//  first remove the token from localStorage and then redirect
+// user to go lgoin page  for sigin in
+
 function logOut() {
   localStorage.removeItem("token");
   location.href = "/login.html";
