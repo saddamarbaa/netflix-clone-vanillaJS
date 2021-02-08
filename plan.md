@@ -1,4 +1,6 @@
-NEXT UP
+- Keep the user logged in
+- Create a Register Page
+- Complete the API for Registration
 
 - Grab the data
 - Create a Login Form

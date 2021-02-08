@@ -6,24 +6,6 @@ body {
   align-items: center;
 }
 
-.registered-alert {
-  display: none;
-}
-
-.loginContainer {
-  background-color: rgba(0, 0, 0, 0.75);
-  padding-top: 60px;
-  padding-bottom: 60px;
-  padding-left: 68px;
-  padding-right: 68px;
-  border-radius: 4px;
-  width: 450px;
-}
-
-.loginContainer a {
-  color: white;
-}
-
 .background-wrapper {
   position: absolute;
   top: 0;
@@ -40,6 +22,24 @@ body {
   object-fit: cover;
 }
 
+.loginContainer {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 68px;
+  padding-right: 68px;
+  border-radius: 4px;
+  width: 450px;
+}
+
+.loginContainer a {
+  color: white;
+}
+
 .logingContainer-main button {
   background-color: #e50914;
+}
+
+.registered-alert {
+  display: none;
 }
