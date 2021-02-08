@@ -61,6 +61,8 @@ loginForm.addEventListener("submit", (event) => {
     .then((data) => {
       // Displaying results to console
       console.log(data);
+      localStorage.setItem("token", response.token);
+      location.href = "/";
     })
     .catch((error) => {
       console.log("Fetch Error :-S", error);
