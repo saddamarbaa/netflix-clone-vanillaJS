@@ -61,7 +61,9 @@ loginForm.addEventListener("submit", (event) => {
     .then((data) => {
       // Displaying results to console
       console.log(data);
-      localStorage.setItem("token", response.token);
+      console.log(data.token);
+      // save the token in the localStorage
+      localStorage.setItem("token", data.token);
       location.href = "/";
     })
     .catch((error) => {

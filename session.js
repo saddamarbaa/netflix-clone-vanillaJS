@@ -1,4 +1,11 @@
-function checkIfLoggedIn() {
+// in login page
+// Check if token is available
+// if token is available take the  redirect user to the home page
+// in home page also
+// Check if token is available
+// if token is  not available take redirect user to login page
+
+const checkIfLoggedIn = () => {
   const currentToken = localStorage.getItem("token");
   if (currentToken) {
     if (
@@ -18,14 +25,13 @@ function checkIfLoggedIn() {
       location.href = "/login.html";
     }
   }
-}
+};
 
-//  first remove the token from localStorage and then redirect
-// user to go lgoin page  for sigin in
-
-function logOut() {
+// first remove the token from localStorage and then redirect
+// user to go lgoin page for sigin in
+const logOut = () => {
   localStorage.removeItem("token");
   location.href = "/login.html";
-}
+};
 
 checkIfLoggedIn();
