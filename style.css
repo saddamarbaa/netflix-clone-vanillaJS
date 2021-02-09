@@ -42,18 +42,20 @@ header .profile > img {
   width: 48px;
 }
 
+.dropdown-conatiner {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding-top: 3px;
+  display: none;
+}
+
 /*  dropdown menu  */
 .dropdown {
   background-color: black;
   padding: 8px;
   border-radius: 4px;
-  position: absolute;
-  top: 100%;
   width: 100px;
-  /* padding-top: 10px; */
-  margin-top: 3px;
-  right: 0;
-  opacity: 0;
 }
 
 .profile {
@@ -64,8 +66,8 @@ header .profile > img {
   cursor: pointer;
 }
 
-.profile:hover .dropdown {
-  opacity: 1;
+.profile:hover .dropdown-conatiner {
+  display: block;
 }
 
 /********** Main content  **********/
