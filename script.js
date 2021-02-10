@@ -5,6 +5,7 @@ window.onload = () => {
   getTrendingNowMovies();
   getTopRatedMovies();
   getGenres();
+  getWishList();
 };
 
 // Functions and Event Listener
@@ -228,3 +229,26 @@ const getTopRatedMovies = () => {
 
 // movies genres
 // https://api.themoviedb.org/3/discover/movie?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=53
+
+const getWishList = () => {
+  const apiUrl = `http://localhost:3000`;
+  fetch(`${apiUrl}/wishlist`, {
+    headers: {
+      Authorization: `${localStorage.getItem("token")}`,
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("something went wrong");
+      }
+    })
+    .then((data) => {
+      // console.log("wishList Data is ", data);
+    })
+    .catch((error_data) => {
+      logOut();
+      console.log(error_data);
+    });
+};

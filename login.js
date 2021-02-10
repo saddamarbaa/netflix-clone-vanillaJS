@@ -1,10 +1,22 @@
 // Selecters
-
 const loginForm = document.getElementById("loginForm");
 // console.log(loginForm);
 
 // the API URL
 const apiUrl = "http://localhost:3000";
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const existingEmail = urlParams.get("existingEmail");
+const registered = urlParams.get("registered");
+
+if (existingEmail) {
+  loginForm.email.value = existingEmail;
+}
+
+if (registered) {
+  document.querySelector(".registered-alert").style.display = "block";
+}
 
 /**
  * Event handler for a form submit event.
@@ -57,7 +69,7 @@ loginForm.addEventListener("submit", (event) => {
         // throw new Error(response.statusText);
         throw new Error("Something went wrong");
       }
-    })
+    }) // returns a promise allready
     .then((data) => {
       // Displaying results to console
       console.log(data);

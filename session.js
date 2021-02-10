@@ -1,9 +1,11 @@
-// in login page
-// Check if token is available
-// if token is available take the  redirect user to the home page
-// in home page also
-// Check if token is available
-// if token is  not available take redirect user to login page
+/**
+ *  in login page
+ *  Check if token is available
+ *  if token is available take the  redirect user to the home page
+ *  in home page also
+ *  Check if token is available
+ *  if token is  not available take redirect user to login page
+ */
 
 const checkIfLoggedIn = () => {
   const currentToken = localStorage.getItem("token");
@@ -34,4 +36,5 @@ const logOut = () => {
   location.href = "/login.html";
 };
 
+// function call
 checkIfLoggedIn();

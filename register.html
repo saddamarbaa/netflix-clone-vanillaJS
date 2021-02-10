@@ -15,14 +15,14 @@
 
   <!-- the Main CSS File -->
   <link rel="stylesheet" href="style.css">
-  <!-- login CSS File -->
-  <link rel="stylesheet" href="login.css">
+  <!-- register CSS File -->
+  <link rel="stylesheet" href="register.css">
 
   <!-- the session.js File -->
   <script src="session.js"></script>
 
   <!-- Title -->
-  <title>Netflix clone Login page</title>
+  <title>Netflix clone Login registration page</title>
 </head>
 <body>
   <div class="background-wrapper">
@@ -40,27 +40,24 @@
   <!-- Container for login -->
   <main>
     <div class="loginContainer">
-      <div class="logingContainer-main">
+      <div class="loginContainer-main">
         <div>
-          <h1>Sign In</h1>
+          <h1>Register</h1>
         </div>
-        <div class="registered-alert alert alert-success" role="alert">
-          Successfully Registered
-        </div>
-        <!--  Bootstrap's form .. -->
-        <form id="loginForm">
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="nameInput">Name</label>
+            <input name="name" type="text" class="form-control form-control-lg" aria-describedby="emailHelp">
+          </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input name="email" type="email" class="form-control form-control-lg" id="exampleInputEmail1"
-              aria-describedby="emailHelp">
+            <input name="email" type="email" class="form-control form-control-lg" aria-describedby="emailHelp">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input name="password" type="password" class="form-control form-control-lg" id="exampleInputPassword1">
           </div>
-          <button type="submit" class="mt-4 btn btn-danger btn-lg btn-block ">Submit</button>
-          <a href="/register.html">Register</a>
-          <a href="#" style="float: right;">Need help?</a>
+          <button type="submit" class="mt-4 btn btn-danger btn-lg btn-block ">Register</button>
         </form>
       </div>
     </div>
@@ -73,7 +70,7 @@
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
 
-  <!-- Link login Js JavaScript file -->
-  <script src="login.js"></script>
+  <!-- Link to register Js JavaScript file -->
+  <script src="register.js"></script>
 </body>
 </html>

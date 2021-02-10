@@ -1,14 +1,14 @@
-- Keep the user logged in
-- Create a Register Page
-- Complete the API for Registration
+- Keep the user logged in => TODO
+- Create a Register Page => TODO
+- Complete the API for Registration => TODO
 
-- Grab the data
-- Create a Login Form
-- Login logout
+- Grab the data => TODO
+- Create a Login Form => TODO
+- Login logout => TODO
 - PlayLists
-- Create a login form
-- Hash a password
-- Keep User Login
+- Create a login form => TODO
+- Hash a password => TODO
+- Keep User Login => TODO
 
 - Fix the issue with iframe => TODO
 - Add genres to Netflix clone =>DONE
