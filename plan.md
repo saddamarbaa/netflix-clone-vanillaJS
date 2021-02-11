@@ -1,3 +1,19 @@
+- Create a wishilist
+- Add the ability to add to a wishlist Back End
+- Create a new Collection in MongoDB for Wishlist
+- Collection will have UserId and MovieID
+- Validate the user
+- We need to create a route to add movies to the Wishlist
+- We can post to wishlist
+- Get from the wishlist
+- Needs to be a private route (Only the person who owns that wihlist can access it)
+- Optional - Delete from wishlist
+- Return wihlist response Front End
+- Button to add to wishlist
+- Show wishlist as a category
+- Add it inside the category
+- Fetch the wishlist data from API
+
 - Keep the user logged in => TODO
 - Create a Register Page => TODO
 - Complete the API for Registration => TODO

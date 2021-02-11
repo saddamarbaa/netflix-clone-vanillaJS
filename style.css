@@ -168,6 +168,7 @@ h2 {
   width: auto;
 }
 
+.wishlist__movies img,
 .original__movies img,
 .movies__container img {
   transition: all 0.2s ease-out;

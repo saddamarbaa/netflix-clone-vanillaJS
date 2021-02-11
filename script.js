@@ -1,11 +1,40 @@
-// Call functions whe the page is loaded
+// WishList API
+const apiUrl = "http://localhost:3000";
 
+// Call functions whe the page is loaded
 window.onload = () => {
   getOriginalsMovies();
   getTrendingNowMovies();
   getTopRatedMovies();
   getGenres();
   getWishList();
+};
+
+/**
+ * fetch WishList movies data from (wishlist) API
+ */
+
+const getWishList = () => {
+  fetch(`${apiUrl}/wishlist`, {
+    headers: {
+      Authorization: `${localStorage.getItem("token")}`,
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("something went wrong");
+      }
+    })
+    .then((data) => {
+      console.log(data);
+      showMovies(data, ".wishlist__movies", "backdrop_path");
+    })
+    .catch((error_data) => {
+      logOut();
+      console.log(error_data);
+    });
 };
 
 // Functions and Event Listener
@@ -61,10 +90,16 @@ const handleMovieSelection = (e) => {
   // we need to call the api with the ID
 };
 
-//  Add Movies to the front end
+// Add Movies to the front end
+/**
+ * function to Display Movies to the front end
+ * @param {movies} movies Object
+ * @param {element_selector} movies row name
+ * @param { path_type} img  path_type
+ */
 
 const showMovies = (movies, element_selector, path_type) => {
-  // console.log(movies);
+  console.log(movies);
   // console.log(element_selector);
   // console.log(path_type);
   // console.log(movie.results);
@@ -74,11 +109,9 @@ const showMovies = (movies, element_selector, path_type) => {
     // console.log(movie.results);
     const imageElement = document.createElement("img");
 
-    let { backdrop_path, id } = movie;
-    // console.log("TESTING DESCONSTRUCT:", id, backdrop_path);
+    imageElement.setAttribute("data-id", movie.id);
+    imageElement.src = `https://image.tmdb.org/t/p/original${movie[path_type]}`;
 
-    imageElement.setAttribute("data-id", id);
-    imageElement.src = `https://image.tmdb.org/t/p/original${backdrop_path}`;
     // console.log(imageElement);
 
     // Event Listener to each image on click
@@ -90,7 +123,12 @@ const showMovies = (movies, element_selector, path_type) => {
   }
 };
 
-// fetch movies data from (TMDb) API
+/**
+ * function to fetch movies from (TMDb)
+ * @param {url} movies url
+ * @param {element_selector} movies row name
+ * @param { path_type} img   path_type
+ */
 
 const fetchMovies = (url, element_selector, path_type) => {
   fetch(url)
@@ -111,6 +149,11 @@ const fetchMovies = (url, element_selector, path_type) => {
     });
 };
 
+/**
+ * function to fetch movies from (TMDb) base on given genre ID
+ * @param {genreId} genre ID
+ */
+
 const fetchMoviesBasedOnGenre = (genreId) => {
   let url = "https://api.themoviedb.org/3/discover/movie?";
 
@@ -127,7 +170,9 @@ const fetchMoviesBasedOnGenre = (genreId) => {
   }); // returns a promise already
 };
 
-// fetch movies genres from (TMDb) API
+/**
+ * fetch movies genres from (TMDb) API
+ */
 
 const getGenres = () => {
   const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=92bcc12799d8068995c7c9650f414f3e&language=en-US`;
@@ -151,7 +196,11 @@ const getGenres = () => {
     });
 };
 
-// show Movies to the front end based on their genres
+/**
+ * function to show Movies to the front end based on their genres
+ *  @param {genreName}  genre Name
+ *  @param {movies}  movies
+ */
 
 const showMoviesBasedOnGenre = (genreName, movies) => {
   // console.log(movies);
@@ -184,6 +233,12 @@ const showMoviesBasedOnGenre = (genreName, movies) => {
   allMovies.appendChild(genreEl);
   allMovies.appendChild(moviesEl);
 };
+
+/**
+ * function to loop through all the given genres and pass each genner ID to
+ * fetchMoviesBasedOnGenre() function and after get movies back will pass to  *showMoviesBasedOnGenre() to show on the front end
+ * @param {genres}  all the genres from API
+ */
 
 const showMoviesGenres = (genres) => {
   // console.log(genres);
@@ -229,26 +284,3 @@ const getTopRatedMovies = () => {
 
 // movies genres
 // https://api.themoviedb.org/3/discover/movie?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=53
-
-const getWishList = () => {
-  const apiUrl = `http://localhost:3000`;
-  fetch(`${apiUrl}/wishlist`, {
-    headers: {
-      Authorization: `${localStorage.getItem("token")}`,
-    },
-  })
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("something went wrong");
-      }
-    })
-    .then((data) => {
-      // console.log("wishList Data is ", data);
-    })
-    .catch((error_data) => {
-      logOut();
-      console.log(error_data);
-    });
-};
