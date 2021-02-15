@@ -3,7 +3,7 @@
 the goal for this project is to learn JavaScript fundamental in real projects
 
 
-### SEE Netflix Clone API REPO :  https://github.com/saddamarbaa/netflix-clone-api
+- SEE Netflix Clone API REPO :  https://github.com/saddamarbaa/netflix-clone-api
 
 Technology: HTML, JS CSS
 
