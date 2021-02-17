@@ -2,10 +2,11 @@
 const loginForm = document.getElementById("loginForm");
 // console.log(loginForm);
 
-// the API URL
+// The API URL
 const apiUrl = "http://localhost:3000";
 
 const queryString = window.location.search;
+// console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 const existingEmail = urlParams.get("existingEmail");
 const registered = urlParams.get("registered");

@@ -4,7 +4,7 @@
  *  if token is available take the  redirect user to the home page
  *  in home page also
  *  Check if token is available
- *  if token is  not available take redirect user to login page
+ *  if token is not available take redirect user to login page
  */
 
 const checkIfLoggedIn = () => {
@@ -29,8 +29,8 @@ const checkIfLoggedIn = () => {
   }
 };
 
-// first remove the token from localStorage and then redirect
-// user to go lgoin page for sigin in
+// first remove the token from localStorage
+// and then redirect user to go lgoin page for sigin in
 const logOut = () => {
   localStorage.removeItem("token");
   location.href = "/login.html";

@@ -64,6 +64,7 @@ header .profile > img {
 
 .dropdown span {
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .profile:hover .dropdown-conatiner {
