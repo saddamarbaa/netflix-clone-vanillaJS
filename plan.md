@@ -7,27 +7,27 @@
 - We can post to wishlist
 - Get from the wishlist
 - Needs to be a private route (Only the person who owns that wihlist can access it)
-- Optional - Delete from wishlist
-- Return wihlist response Front End
-- Button to add to wishlist
-- Show wishlist as a category
-- Add it inside the category
-- Fetch the wishlist data from API
+- Optional - Delete from wishlist => TODO
+- Return wihlist response Front End => DONE
+- Button to add to wishlist => TODO
+- Show wishlist as a category => DONE
+- Add it inside the category => DONE
+- Fetch the wishlist data from API => DONE
 
 - Keep the user logged in => TODO
-- Create a Register Page => TODO
-- Complete the API for Registration => TODO
+- Create a Register Page => DONE
+- Complete the API for Registration => DONE
 
-- Grab the data => TODO
-- Create a Login Form => TODO
-- Login logout => TODO
-- PlayLists
-- Create a login form => TODO
-- Hash a password => TODO
-- Keep User Login => TODO
+- Grab the data => DONE
+- Create a Login Form => DONE
+- Login logout => DONE
+- PlayLists => DONE
+- Create a login form => DONE
+- Hash a password => DONE
+- Keep User Login => DONE
 
-- Fix the issue with iframe => TODO
-- Add genres to Netflix clone =>DONE
+- Fix the issue with iframe= > DONE
+- Add genres to Netflix clone => DONE
 
 - Create a Header => DONE
 - Finish Up the movies section => DONE
