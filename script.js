@@ -6,8 +6,11 @@ window.onload = () => {
   getOriginalsMovies();
   getTrendingNowMovies();
   getTopRatedMovies();
-  getGenres();
   getWishList();
+  getGenres();
+
+  const wishListAdd = document.document.querySelector(".fas");
+  console.log(wishListAdd);
 };
 
 /**
@@ -28,8 +31,14 @@ const getWishList = () => {
       }
     })
     .then((data) => {
-      console.log(data);
-      showMovies(data, ".wishlist__movies", "backdrop_path");
+      // console.log("All this User wishlist are :");
+      // console.log(data);
+      if (data.results == 0) {
+        document.querySelector(".movies__headerWishlist").style.display =
+          "none";
+      } else {
+        showMovies(data, ".wishlist__movies", "backdrop_path");
+      }
     })
     .catch((error_data) => {
       logOut();
@@ -90,7 +99,6 @@ const handleMovieSelection = (e) => {
   // we need to call the api with the ID
 };
 
-// Add Movies to the front end
 /**
  * function to Display Movies to the front end
  * @param {movies} movies Object
@@ -107,10 +115,21 @@ const showMovies = (movies, element_selector, path_type) => {
   const moviesEl = document.querySelector(element_selector);
   for (let movie of movies.results) {
     // console.log(movie.results);
-    const imageElement = document.createElement("img");
 
+    const image__container = document.createElement("div");
+    image__container.classList.add("images__container");
+
+    const liElement = document.createElement("li");
+    liElement.classList.add("fas");
+    liElement.classList.add("fa-plus-square");
+
+    const imageElement = document.createElement("img");
+    // console.log(image__container);
     imageElement.setAttribute("data-id", movie.id);
     imageElement.src = `https://image.tmdb.org/t/p/original${movie[path_type]}`;
+
+    image__container.appendChild(liElement);
+    image__container.appendChild(imageElement);
 
     // console.log(imageElement);
 
@@ -118,8 +137,8 @@ const showMovies = (movies, element_selector, path_type) => {
     imageElement.addEventListener("click", (e) => {
       handleMovieSelection(e);
     });
-
-    moviesEl.appendChild(imageElement);
+    console.log(image__container);
+    moviesEl.appendChild(image__container);
   }
 };
 
@@ -141,7 +160,7 @@ const fetchMovies = (url, element_selector, path_type) => {
       }
     })
     .then((data) => {
-      // console.log(data);
+      console.log(data);
       showMovies(data, element_selector, path_type);
     })
     .catch((error) => {
@@ -217,6 +236,13 @@ const showMoviesBasedOnGenre = (genreName, movies) => {
   moviesEl.setAttribute("id", genreName);
 
   for (let movie of movies.results) {
+    let image__container = document.createElement("div");
+    image__container.classList.add("images__container");
+
+    let liElement = document.createElement("li");
+    liElement.classList.add("fas");
+    liElement.classList.add("fa-plus-square");
+
     let imageElement = document.createElement("img");
 
     let { backdrop_path, id } = movie;
@@ -227,7 +253,11 @@ const showMoviesBasedOnGenre = (genreName, movies) => {
     imageElement.addEventListener("click", (e) => {
       handleMovieSelection(e);
     });
-    moviesEl.appendChild(imageElement);
+
+    image__container.appendChild(liElement);
+    image__container.appendChild(imageElement);
+
+    moviesEl.appendChild(image__container);
   }
 
   allMovies.appendChild(genreEl);
