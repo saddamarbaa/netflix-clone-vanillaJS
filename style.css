@@ -189,6 +189,19 @@ h2 {
   height: 190px;
 }
 
+.images__container {
+  margin-right: 10px;
+  width: 200px;
+  position: relative;
+}
+
+.fa-plus-square {
+  position: absolute;
+  bottom: 0;
+  border: 2px solid #ffa500;
+  z-index: 10;
+}
+
 /********** Style Bootstrap Modal **********/
 
 .modal-content {
@@ -207,17 +220,4 @@ h2 {
   justify-content: center;
   align-items: center;
   background-color: #000;
-}
-
-.images__container {
-  margin-right: 10px;
-  width: 200px;
-  position: relative;
-}
-
-.fa-plus-square {
-  position: absolute;
-  bottom: 20%;
-  border: 2px solid red;
-  z-index: 10;
 }
