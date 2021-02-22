@@ -8,45 +8,14 @@ window.onload = () => {
   getTopRatedMovies();
   getWishList();
   getGenres();
-
-  const wishListAdd = document.document.querySelector(".fas");
-  console.log(wishListAdd);
-};
-
-/**
- * fetch WishList movies data from (wishlist) API
- */
-
-const getWishList = () => {
-  fetch(`${apiUrl}/wishlist`, {
-    headers: {
-      Authorization: `${localStorage.getItem("token")}`,
-    },
-  })
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("something went wrong");
-      }
-    })
-    .then((data) => {
-      // console.log("All this User wishlist are :");
-      // console.log(data);
-      if (data.results == 0) {
-        document.querySelector(".movies__headerWishlist").style.display =
-          "none";
-      } else {
-        showMovies(data, ".wishlist__movies", "backdrop_path");
-      }
-    })
-    .catch((error_data) => {
-      logOut();
-      console.log(error_data);
-    });
 };
 
 // Functions and Event Listener
+
+/**
+ * function to get the movie trailer
+ * @param { id}  movie Id
+ */
 
 async function getMovieTrailer(id) {
   // read our JSON
@@ -107,15 +76,13 @@ const handleMovieSelection = (e) => {
  */
 
 const showMovies = (movies, element_selector, path_type) => {
-  console.log(movies);
+  // console.log(movies);
   // console.log(element_selector);
   // console.log(path_type);
   // console.log(movie.results);
 
   const moviesEl = document.querySelector(element_selector);
   for (let movie of movies.results) {
-    // console.log(movie.results);
-
     const image__container = document.createElement("div");
     image__container.classList.add("images__container");
 
@@ -128,16 +95,22 @@ const showMovies = (movies, element_selector, path_type) => {
     imageElement.setAttribute("data-id", movie.id);
     imageElement.src = `https://image.tmdb.org/t/p/original${movie[path_type]}`;
 
-    image__container.appendChild(liElement);
     image__container.appendChild(imageElement);
+    image__container.appendChild(liElement);
 
+    // Add Event Listener to each liElement on click
+    liElement.addEventListener("click", () => {
+      liElement.style.transition = "border 0.5s ease";
+      liElement.style.border = "2px solid #FF0000";
+      addWishList(movie.id, movie[path_type], movie.name);
+    });
+
+    // Add Event Listener to each image on click
     // console.log(imageElement);
-
-    // Event Listener to each image on click
     imageElement.addEventListener("click", (e) => {
       handleMovieSelection(e);
     });
-    console.log(image__container);
+
     moviesEl.appendChild(image__container);
   }
 };
@@ -160,7 +133,7 @@ const fetchMovies = (url, element_selector, path_type) => {
       }
     })
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       showMovies(data, element_selector, path_type);
     })
     .catch((error) => {
@@ -190,7 +163,7 @@ const fetchMoviesBasedOnGenre = (genreId) => {
 };
 
 /**
- * fetch movies genres from (TMDb) API
+ * Function to fetch movies genres from (TMDb) API
  */
 
 const getGenres = () => {
@@ -216,7 +189,7 @@ const getGenres = () => {
 };
 
 /**
- * function to show Movies to the front end based on their genres
+ *  function to show Movies to the front end based on their genres
  *  @param {genreName}  genre Name
  *  @param {movies}  movies
  */
@@ -245,13 +218,23 @@ const showMoviesBasedOnGenre = (genreName, movies) => {
 
     let imageElement = document.createElement("img");
 
-    let { backdrop_path, id } = movie;
+    let { backdrop_path, id, title } = movie;
+
     // console.log("TESTING DESCONSTRUCT:", id, backdrop_path);
     imageElement.setAttribute("data-id", id);
     imageElement.src = `https://image.tmdb.org/t/p/original${backdrop_path}`;
 
+    // Add Event Listener to each image on click
     imageElement.addEventListener("click", (e) => {
       handleMovieSelection(e);
+    });
+
+    // Add Event Listener to each liElement on click
+    console.log(movie);
+    liElement.addEventListener("click", () => {
+      liElement.style.transition = "border 0.5s ease";
+      liElement.style.border = "2px solid #FF0000";
+      addWishList(id, backdrop_path, title);
     });
 
     image__container.appendChild(liElement);
@@ -265,9 +248,10 @@ const showMoviesBasedOnGenre = (genreName, movies) => {
 };
 
 /**
- * function to loop through all the given genres and pass each genner ID to
- * fetchMoviesBasedOnGenre() function and after get movies back will pass to  *showMoviesBasedOnGenre() to show on the front end
- * @param {genres}  all the genres from API
+ *  function to loop through all the given genres and pass each genner ID to
+ *  fetchMoviesBasedOnGenre() function and after get movies back will pass to
+ *  showMoviesBasedOnGenre() to show on the front end
+ *  @param {genres}  all the genres from API
  */
 
 const showMoviesGenres = (genres) => {
@@ -307,6 +291,95 @@ const getTopRatedMovies = () => {
   const url =
     "https://api.themoviedb.org/3/movie/top_rated?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&page=1";
   fetchMovies(url, ".topRated__movies", "backdrop_path");
+};
+
+/**
+ * function to fetch WishList movies data from (wishlist) API
+ */
+
+const getWishList = () => {
+  fetch(`${apiUrl}/wishlist`, {
+    headers: {
+      Authorization: `${localStorage.getItem("token")}`,
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("something went wrong");
+      }
+    })
+    .then((data) => {
+      // console.log("All this User wishlist are :");
+      // console.log(data);
+      if (data.results == 0) {
+        document.querySelector(".movies__headerWishlist").style.display =
+          "none";
+      } else {
+        showMovies(data, ".wishlist__movies", "backdrop_path");
+      }
+    })
+    .catch((error_data) => {
+      logOut();
+      console.log(error_data);
+    });
+};
+
+/**
+ * function to Add Wislist Movies to the front end
+ * @param {movieId} wishList movie Id
+ * @param {backdrop_path}  wishList movie backdrop_path
+ * @param { path_type} wishList movie name
+ */
+
+const addWishList = (movieId, backdrop_path, title) => {
+  // console.log(movieId);
+  // console.log(backdrop_path);
+  // console.log(title);
+
+  // POST request using fetch()
+  fetch(apiUrl + "/wishlist", {
+    /**
+     * The default method for a request with fetch is GET,
+     * so we must tell it to use the POST HTTP method.
+     */
+    method: "POST",
+    /**
+     * These headers will be added to the request and tell
+     * the API that the request body is JSON and that we can
+     * accept JSON responses.
+     */
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      authorization: localStorage.getItem("token"),
+    },
+    /**
+     * The body of our POST request is the JSON string that
+     * we created above.
+     */
+    body: JSON.stringify({
+      movieId: movieId,
+      backdrop_path: backdrop_path,
+      title: title,
+    }),
+  })
+    .then((response) => {
+      if (response.ok) {
+        // Convert to JSON  and returned
+        return response.json();
+      } else {
+        // throw new Error(response.statusText);
+        throw new Error("Something went wrong");
+      }
+    }) // returns a promise allready
+    .then((data) => {
+      console.log("Wishlist Datat is", data);
+    })
+    .catch((error) => {
+      console.log("Fetch Error :-S", error);
+    });
 };
 
 // the list of official genres for movies
