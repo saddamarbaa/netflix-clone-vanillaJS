@@ -73,8 +73,8 @@ loginForm.addEventListener("submit", (event) => {
     }) // returns a promise allready
     .then((data) => {
       // Displaying results to console
-      console.log(data);
-      console.log(data.token);
+      // console.log(data);
+      // console.log(data.token);
       // save the token in the localStorage
       localStorage.setItem("token", data.token);
       location.href = "/";

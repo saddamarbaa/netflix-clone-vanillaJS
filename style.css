@@ -169,7 +169,6 @@ h2 {
   width: auto;
 }
 
-.wishlist__movies img,
 .original__movies img,
 .movies__container img {
   transition: all 0.2s ease-out;
@@ -184,6 +183,23 @@ h2 {
 .movies__container img {
   margin-right: 10px;
   width: 200px;
+}
+
+.wishlist__movies img {
+  height: 190px;
+}
+
+.images__container {
+  margin-right: 10px;
+  width: 200px;
+  position: relative;
+}
+
+.fa-plus-square {
+  position: absolute;
+  bottom: 0;
+  border: 2px solid #ffa500;
+  z-index: 10;
 }
 
 /********** Style Bootstrap Modal **********/
