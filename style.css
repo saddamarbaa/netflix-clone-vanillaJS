@@ -1,224 +1,233 @@
-/********** Start Base Styles (Generic) **********/
+/**
+ * ******* Start Base Styles (Generic) *********
+ *
+ * @format
+ */
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 /* CSS variables */
 :root {
-  --white: #fff;
-  --black: #000;
+	--white: #fff;
+	--black: #000;
 }
 
 body {
-  background-color: #111;
-  color: var(--white);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #111;
+	color: var(--white);
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /********** Header  **********/
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 15px;
-  padding-right: 15px;
-  position: absolute;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding-top: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 15px;
+	padding-right: 15px;
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding-top: 15px;
 }
 
+
 header .logo > img {
-  width: 120px;
+	width: 120px;
 }
 
 header .profile > img {
-  width: 48px;
-}
+	width: 48px;
+} 
 
-.dropdown-conatiner {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  padding-top: 3px;
-  display: none;
-}
+/*
+ .dropdown-conatiner {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	padding-top: 3px;
+	display: none;
+}  */
 
 /*  dropdown menu  */
-.dropdown {
-  background-color: black;
-  padding: 8px;
-  border-radius: 4px;
-  width: 100px;
+/* .dropdown {
+	background-color: black;
+	padding: 8px;
+	border-radius: 4px;
+	width: 100px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
 }
 
 .profile {
-  position: relative;
+	position: relative;
 }
 
 .dropdown span {
-  cursor: pointer;
-  text-decoration: underline;
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 .profile:hover .dropdown-conatiner {
-  display: block;
-}
+	display: block;
+}   */
 
 /********** Main content  **********/
 
 .featured {
-  height: 400px;
-  background: url("https://occ-0-3633-2706.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABTe_aG5bSenJ76kFXNIVuqejdtqsh4Vy6FwnWPpTRNBpQuMfPNZ2tkBWxXZnvnOjTszhQlvwx9p5uH3o_DOg1rV9GkYp.jpg?r=9b2")
-    no-repeat center center/cover;
-  padding: 0 0 0 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
+	height: 400px;
+	background: url("https://occ-0-3633-2706.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABTe_aG5bSenJ76kFXNIVuqejdtqsh4Vy6FwnWPpTRNBpQuMfPNZ2tkBWxXZnvnOjTszhQlvwx9p5uH3o_DOg1rV9GkYp.jpg?r=9b2")
+		no-repeat center center/cover;
+	padding: 0 0 0 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
 }
 
 .featured::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.3);
 }
 
 .featured::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 7.4rem;
-  background-image: linear-gradient(
-    180deg,
-    transparent,
-    rgba(37, 37, 37, 0.61),
-    #111
-  );
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 7.4rem;
+	background-image: linear-gradient(
+		180deg,
+		transparent,
+		rgba(37, 37, 37, 0.61),
+		#111
+	);
 }
 
 .featured h2 {
-  font-size: 50px;
-  margin: 0;
-  z-index: 10;
+	font-size: 50px;
+	margin: 0;
+	z-index: 10;
 }
 
 .featured .featured__buttons {
-  z-index: 10;
+	z-index: 10;
 }
 
 .featured .featured__buttons button {
-  font-size: 16px;
-  color: white;
-  background-color: rgba(109, 109, 110, 0.7);
-  border: none;
-  padding: 8px 24px;
-  border-radius: 4px;
+	font-size: 16px;
+	color: white;
+	background-color: rgba(109, 109, 110, 0.7);
+	border: none;
+	padding: 8px 24px;
+	border-radius: 4px;
 }
 
 .featured .featured__buttons .button__play {
-  background-color: var(--white);
-  color: var(--black);
+	background-color: var(--white);
+	color: var(--black);
 }
 
 h2 {
-  padding: 20px 0;
+	padding: 20px 0;
 }
 .featured .featured__buttons .button__play i {
-  margin-right: 6px;
+	margin-right: 6px;
 }
 
 .featured .featured__description {
-  max-width: 350px;
-  font-weight: 400;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
-  z-index: 10;
+	max-width: 350px;
+	font-weight: 400;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+	z-index: 10;
 }
 
 .movies__container {
-  padding-top: 20px;
-  padding-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .original__movies,
 .movies__container {
-  padding-left: 50px;
-  display: flex;
-  overflow-x: scroll;
+	padding-left: 50px;
+	display: flex;
+	overflow-x: scroll;
 }
 
 .original__movies::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 .original__movies img {
-  margin-right: 10px;
-  height: 250px;
-  width: auto;
+	margin-right: 10px;
+	height: 250px;
+	width: auto;
 }
 
 .original__movies img,
 .movies__container img {
-  transition: all 0.2s ease-out;
-  cursor: pointer;
+	transition: all 0.2s ease-out;
+	cursor: pointer;
 }
 
 .original__movies img:hover,
 .movies__container img:hover {
-  transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 .movies__container img {
-  margin-right: 10px;
-  width: 200px;
+	margin-right: 10px;
+	width: 200px;
 }
 
 .wishlist__movies img {
-  height: 190px;
+	height: 190px;
 }
 
 .images__container {
-  margin-right: 10px;
-  width: 200px;
-  position: relative;
+	margin-right: 10px;
+	width: 200px;
+	position: relative;
 }
 
 .fa-plus-square {
-  position: absolute;
-  bottom: 0;
-  border: 2px solid #ffa500;
-  z-index: 10;
+	position: absolute;
+	bottom: 0;
+	border: 2px solid #ffa500;
+	z-index: 10;
 }
 
 /********** Style Bootstrap Modal **********/
 
 .modal-content {
-  background-color: #000;
+	background-color: #000;
 }
 
 .modal-body iframe {
-  width: 100%;
+	width: 100%;
 }
 
 .modal-body span {
-  color: #fff;
-  width: 100%;
-  display: flex;
-  height: 60px;
-  justify-content: center;
-  align-items: center;
-  background-color: #000;
-  /* Test */
+	color: #fff;
+	width: 100%;
+	display: flex;
+	height: 60px;
+	justify-content: center;
+	align-items: center;
+	background-color: #000;
 }

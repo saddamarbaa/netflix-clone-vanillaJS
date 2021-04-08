@@ -1,135 +1,304 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Bootstrap CSS Link -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		<!-- Bootstrap CSS Link -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+			integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+			crossorigin="anonymous"
+		/>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+		<!-- Font Awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+			integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+			crossorigin="anonymous"
+		/>
+		<script src="https://kit.fontawesome.com/c939d0e917.js"></script>
 
-  <!-- the Main Js File -->
-  <script src="script.js"></script>
+		<!-- the Main Js File -->
+		<script src="script.js" defer></script>
 
+		<!-- the Main CSS File -->
+		<link rel="stylesheet" href="style.css" />
 
-  <!-- the Main CSS File -->
-  <link rel="stylesheet" href="style.css">
+		<!-- Header CSS File -->
+		<link rel="stylesheet" href="header.css" />
 
-  <!-- the session.js File -->
-  <script src="session.js"></script>
+		<!-- the session.js File -->
+		<script src="session.js"></script>
 
-  <!-- Title -->
-  <title>Netflix clone</title>
+		<!-- Title -->
+		<title>Netflix clone</title>
+	</head>
+	<body>
+		<!-- Header / Navigation -->
+		<header class="navigation">
+			<img class="logo" src="./img/Netflix-Logo.png" alt="website logo" />
 
-</head>
-<body>
-  <!-- Header(Logo and Profiles Images) -->
-  <header>
-    <div class="logo">
-      <img src="assets/logo.png" alt="logo Img">
-    </div>
-    <div class="profile">
-      <img src="assets/profile__logo.png" alt="profile logo">
-      <!--  dropdown menu  -->
-      <div class="dropdown-conatiner">
-        <div class="dropdown">
-          <span onclick="logOut()">Sign out</span>
-        </div>
-      </div>
-    </div>
-  </header>
+			<!-- Main Menu -->
+			<ul class="navigation__mainMenu">
+				<li class="navigation__mainMenu-item">
+					<a
+						class="navigation__mainMenu-link mainMenu-link--active"
+						href="#"
+						>Home</a
+					>
+				</li>
+				<li class="navigation__mainMenu-item">
+					<a class="navigation__mainMenu-link" href="#">TV Shows</a>
+				</li>
+				<li class="navigation__mainMenu-item">
+					<a class="navigation__mainMenu-link" href="#">Movies</a>
+				</li>
+				<li class="navigation__mainMenu-item">
+					<a class="navigation__mainMenu-link" href="#">New & Popular</a>
+				</li>
+				<li class="navigation__mainMenu-item">
+					<a class="navigation__mainMenu-link" href="#">My List</a>
+				</li>
+				<li class="navigation__mainMenu-item">
+					<button class="navigation__mainMenu-btnBrowse">Browse</button>
 
-  <!-- Start the main container that contain all the content -->
-  <main>
-    <!-- Featured Sections -->
-    <div class="featured">
-      <h2>Title</h2>
-      <div class="featured__buttons">
-        <button class="button__play">
-          <i class="fas fa-play"></i>Play</button>
-        <button>My List</button>
-      </div>
-      <div class="featured__description">
-        The coming-of-age journey of five fairies attending Alfea, a magical boarding school in the Otherworld where
-        they must learn to master t...
-      </div>
-    </div>
+					<!-- Dropdown for button <Browse> -->
+					<div class="btnBrowse__dropdown">
+						<div class="btnBrowse__dropdown-content">
+							<ul>
+								<li>
+									<a href="#" class="mainMenu-link--active">Home</a>
+								</li>
+								<li><a href="#">TV Shows</a></li>
+								<li><a href="#">Movies</a></li>
+								<li><a href="#">New & Popular</a></li>
+								<li><a href="#">My List</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- / Dropdown for button <Browse> -->
+				</li>
+			</ul>
+			<!-- / Main Menu -->
 
-    <!-- Netflix Originals Sections -->
-    <div class="netflixOriginals">
-      <div class="original__header">
-        <h2>NETFLIX ORIGINALS</h2>
-      </div>
-      <!-- Movies List -->
-      <div class="movies__container original__movies"></div>
-    </div>
+			<!-- Secondary Menu -->
+			<ul class="navigation__secondaryMenu">
+				<li class="navigation__secondaryMenu-item">
+					<button class="navigation__secondaryMenu-btn">
+						<i class="fas fa-search"></i>
+					</button>
+				</li>
+				<li class="navigation__secondaryMenu-item">
+					<button
+						class="navigation__secondaryMenu-btn secondaryMenu-kidsLink"
+					>
+						kids
+					</button>
+				</li>
+				<li class="navigation__secondaryMenu-item">
+					<button class="navigation__secondaryMenu-btn">
+						<i class="fas fa-gift"></i>
+					</button>
+				</li>
+				<li class="navigation__secondaryMenu-item">
+					<button class="navigation__secondaryMenu-btn">
+						<i class="fas fa-bell"></i>
+					</button>
+				</li>
+				<li class="navigation__secondaryMenu-item">
+					<button
+						class="navigation__secondaryMenu-btn navigation__secondaryMenu-btnProfile"
+					>
+						<img
+							src="https://occ-0-3633-2706.1.nflxso.net/dnm/api/v6/0RO1pLmU93-gdXvuxd_iYjzPqkc/AAAABRLIW5ni1fjn2M8-RvajSSJDYzNpakEjTQUMOzZXMubSaOI_5gWM3NMuONGFltTny9wBh2dLTe0ViMw-pN9-HPk.png?r=d36"
+							alt=""
+						/>
+					</button>
 
+					<!-- Dropdown for button <Profile> -->
+					<div class="btnProfile__dropdown">
+						<div class="btnProfile__dropdown-content">
+							<div class="btnProfile__dropdown-profiles">
+								<ul>
+									<li>
+										<a href="#" class="profile-link">
+											<img
+												src="https://occ-0-3633-2706.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABSW0UNNli3gsZrSbeWHjihXysx4FyIMacQAIYgySRBeSjtAIgBodupje5grkEp8wdzVxUmnzqV0nPS8HSwp8Tu8.png?r=478"
+												alt=""
+											/>
+											<span>SADDAM</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="profile-link">
+											<img
+												src="https://occ-0-3633-2706.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABZpkhU842pkeSx8MVz_miFfzeyxCcHzUCSh2SrUke4i1iKl076T9tERQ0b4AizSmiIbhbSr5Qzs0cIKXVKrvbbI.png?r=f54"
+												alt=""
+											/>
+											<span>DIMITRIS</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="profile-link">
+											<img
+												src="https://occ-0-3633-2706.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABXdiEhpYVRcyoVddAsE3TcbtkvWz3i2CuKRKOBI6KmbJiglcOu212bFKu4WYrWCdHItx03eXJJqybmiDsQi80U8.png?r=e9e"
+												alt=""
+											/>
+											<span>ADAM</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="profile-link">
+											<img
+												class="profile-icon"
+												src="https://occ-0-3633-2706.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABeZK6VZXlLg0S_dSZuLVFKLBZQo8pHkMvcErvoNKne7VL4i_IPzUJMNw7EA27JjEJGUE3NqwY5d04vBU7NT8v7Lq_OPl4sMa2azUzTIv99IbLWiyI0D46kLx6hRXn4vKLkrzeQ.png?r=42f"
+												alt=""
+											/>
+											<span>Kids</span>
+										</a>
+									</li>
+									<li><a href="#">Manage Profiles</a></li>
+								</ul>
+							</div>
+							<div class="btnProfile__dropdown-kids">
+								<a href="#">kids</a>
+							</div>
+							<div class="btnProfile__dropdown-account">
+								<ul>
+									<li><a href="#">Account</a></li>
+									<li><a href="#">Help Center</a></li>
 
-    <!-- Top Rated Section -->
-    <div class="movies">
-      <div class="movies__header ">
-        <h2 class="movies__headerWishlist">Wishlist</h2>
-      </div>
-      <!-- Movies List -->
-      <!-- <div class="movies__container  wishlist"> </div> -->
-      <div class="movies__container wishlist__movies "></div>
-      <!-- <div class="movies__container  wishlist__movies"></div> -->
-    </div>
+									<li>
+										<a onclick="logOut()" href="#"
+											>Sign out of Netflix</a
+										>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- / Dropdown for button <Profile> -->
+				</li>
+			</ul>
+			<!-- / Secondary Menu -->
+		</header>
+		<!-- / Header / Navigation -->
 
+		<!-- Start the main container that contain all the content -->
+		<main>
+			<!-- Featured Sections -->
+			<div class="featured">
+				<h2>Title</h2>
+				<div class="featured__buttons">
+					<button class="button__play">
+						<i class="fas fa-play"></i>Play
+					</button>
+					<button>My List</button>
+				</div>
+				<div class="featured__description">
+					The coming-of-age journey of five fairies attending Alfea, a
+					magical boarding school in the Otherworld where they must learn
+					to master t...
+				</div>
+			</div>
 
-    <!-- Treding Now Section -->
-    <div class="movies">
-      <div class="movies__header">
-        <h2>Treding Now</h2>
-      </div>
-      <!-- Movies List -->
-      <div class="movies__container TredingNow__movies"></div>
-    </div>
+			<!-- Netflix Originals Sections -->
+			<div class="netflixOriginals">
+				<div class="original__header">
+					<h2>NETFLIX ORIGINALS</h2>
+				</div>
+				<!-- Movies List -->
+				<div class="movies__container original__movies"></div>
+			</div>
 
-    <!-- Top Rated Section -->
-    <div class="movies">
-      <div class="movies__header">
-        <h2>Top Rated</h2>
-      </div>
-      <!-- Movies List -->
-      <div class="movies__container topRated__movies"> </div>
-    </div>
-  </main>
+			<!-- Top Rated Section -->
+			<div class="movies">
+				<div class="movies__header">
+					<h2 class="movies__headerWishlist">Wishlist</h2>
+				</div>
+				<!-- Movies List -->
+				<!-- <div class="movies__container  wishlist"> </div> -->
+				<div class="movies__container wishlist__movies"></div>
+				<!-- <div class="movies__container  wishlist__movies"></div> -->
+			</div>
 
-  <!-- End main container -->
+			<!-- Treding Now Section -->
+			<div class="movies">
+				<div class="movies__header">
+					<h2>Treding Now</h2>
+				</div>
+				<!-- Movies List -->
+				<div class="movies__container TredingNow__movies"></div>
+			</div>
 
-  <!-- Bootstrap Modal -->
-  <div class="modal fade" id="trailerModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <span class="movieNotFound">Trailer Not Found</span>
-          <iframe id="movieTrailer" height="400" src="" frameborder="0" allow="autoplay; encrypted-media"
-            allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
+			<!-- Top Rated Section -->
+			<div class="movies">
+				<div class="movies__header">
+					<h2>Top Rated</h2>
+				</div>
+				<!-- Movies List -->
+				<div class="movies__container topRated__movies"></div>
+			</div>
+		</main>
 
-  <!-- Bootstrap JS Link -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-    crossorigin="anonymous"></script>
+		<!-- End main container -->
 
+		<!-- Bootstrap Modal -->
+		<div
+			class="modal fade"
+			id="trailerModal"
+			tabindex="-1"
+			role="dialog"
+			aria-hidden="true"
+		>
+			<div
+				class="modal-dialog modal-dialog-centered modal-lg"
+				role="document"
+			>
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">
+							Modal title
+						</h5>
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<span class="movieNotFound">Trailer Not Found</span>
+						<iframe
+							id="movieTrailer"
+							height="400"
+							src=""
+							frameborder="0"
+							allow="autoplay; encrypted-media"
+							allowfullscreen
+						></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
 
-</body>
+		<!-- Bootstrap JS Link -->
+		<script
+			src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+			crossorigin="anonymous"
+		></script>
+	</body>
 </html>
