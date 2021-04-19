@@ -15,6 +15,13 @@ Icons: font awesome
 
 ### <a href="https://saddamarbaa.github.io/netflix-clone-vanillaJS/login.html">LIVE DEMO</a>
 
+![image](https://user-images.githubusercontent.com/51326421/115249780-23ce1d00-a153-11eb-9878-dbb982db065d.png)
+
+
+![image](https://user-images.githubusercontent.com/51326421/115250421-bff82400-a153-11eb-8b5f-db8575767fd0.png)
+
+
+
 
 ## Register Page
 
@@ -32,14 +39,3 @@ Icons: font awesome
 
 
 
-### responsive on small mobile screens
-
-### responsive on large screens
-
-![image](https://user-images.githubusercontent.com/51326421/113509527-53402f80-9580-11eb-8981-9c2b47a0fdd1.png)
-
-
-
-
-
-![image](https://user-images.githubusercontent.com/51326421/113509605-b0d47c00-9580-11eb-95ef-220fe5a23ccd.png)
