@@ -38,48 +38,13 @@ header {
 	padding-top: 15px;
 }
 
-
 header .logo > img {
 	width: 120px;
 }
 
 header .profile > img {
 	width: 48px;
-} 
-
-/*
- .dropdown-conatiner {
-	position: absolute;
-	top: 100%;
-	right: 0;
-	padding-top: 3px;
-	display: none;
-}  */
-
-/*  dropdown menu  */
-/* .dropdown {
-	background-color: black;
-	padding: 8px;
-	border-radius: 4px;
-	width: 100px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-ms-border-radius: 4px;
-	-o-border-radius: 4px;
 }
-
-.profile {
-	position: relative;
-}
-
-.dropdown span {
-	cursor: pointer;
-	text-decoration: underline;
-}
-
-.profile:hover .dropdown-conatiner {
-	display: block;
-}   */
 
 /********** Main content  **********/
 
@@ -146,6 +111,7 @@ header .profile > img {
 h2 {
 	padding: 20px 0;
 }
+
 .featured .featured__buttons .button__play i {
 	margin-right: 6px;
 }
@@ -183,11 +149,19 @@ h2 {
 .movies__container img {
 	transition: all 0.2s ease-out;
 	cursor: pointer;
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-ms-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
 }
 
 .original__movies img:hover,
 .movies__container img:hover {
 	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
 }
 
 .movies__container img {
