@@ -11,7 +11,7 @@ the goal for this project is to learn JavaScript fundamental in real projects
 ## Home Page
 
 
-### <a href="https://saddamarbaa.github.io/netflix-clone-vanillaJS/">LIVE DEMO (TODO)</a>
+<!-- ### <a href="https://saddamarbaa.github.io/netflix-clone-vanillaJS/">LIVE DEMO (TODO)</a> -->
 
 ![image](https://user-images.githubusercontent.com/51326421/115249780-23ce1d00-a153-11eb-9878-dbb982db065d.png)
 
