@@ -46,7 +46,7 @@ registerForm.addEventListener("submit", (e) => {
 	// call PAI for Fetch only if we have user email and password
 	if (payload.email && payload.password) {
 		// POST request using fetch()
-		fetch(apiUrl + "/register", {
+		fetch(apiUrl + "/api/users/signup", {
 			/**
 			 * The default method for a request with fetch is GET,
 			 * so we must tell it to use the POST HTTP method.

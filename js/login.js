@@ -45,7 +45,7 @@ loginForm.addEventListener("submit", (event) => {
 	// console.log(givenUserData);
 
 	// POST request using fetch()
-	fetch(apiUrl + "/login", {
+	fetch(apiUrl + "/api/users/login", {
 		/**
 		 * The default method for a request with fetch is GET,
 		 * so we must tell it to use the POST HTTP method.

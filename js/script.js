@@ -31,11 +31,6 @@ window.onload = () => {
  * @param { path_type} img  path_type
  */
 const showMovies = (movies, element_selector, path_type) => {
-	// console.log(movies);
-	// console.log(element_selector);
-	// console.log(path_type);
-	// console.log(movie.results);
-
 	const moviesEl = document.querySelector(element_selector);
 	for (let movie of movies.results) {
 		// add movie id to the set
@@ -151,9 +146,6 @@ const getGenres = () => {
  *  @param {movies}  movies
  */
 const showMoviesBasedOnGenre = (genreName, movies) => {
-	// console.log(movies);
-	// console.log(genreName);
-
 	let allMovies = document.querySelector(".movies");
 
 	let genreEl = document.createElement("div");
@@ -219,10 +211,7 @@ const showMoviesBasedOnGenre = (genreName, movies) => {
  *  @param {genres}  all the genres from API
  */
 const showMoviesGenres = (genres) => {
-	// console.log(genres);
 	genres.genres.forEach((genre) => {
-		// console.log(genre);
-
 		// get list of movies
 		let movies = fetchMoviesBasedOnGenre(genre.id);
 
@@ -259,7 +248,7 @@ const getTopRatedMovies = () => {
 
 //  function to fetch WishList movies data from (wishlist) API
 const getWishList = () => {
-	fetch(apiUrl + "/wishlist", {
+	fetch(apiUrl + "/api/wishlists", {
 		headers: {
 			Authorization: Bearer,
 		},
@@ -272,8 +261,6 @@ const getWishList = () => {
 			}
 		})
 		.then((data) => {
-			// console.log("All this User wishlist are :");
-			// console.log(data);
 			if (data.results == 0) {
 				document.querySelector(".movies__headerWishlist").style.display =
 					"none";
@@ -294,12 +281,8 @@ const getWishList = () => {
  * @param { path_type} wishList movie name
  */
 const addWishList = (movieId, backdrop_path, title) => {
-	// console.log(movieId);
-	// console.log(backdrop_path);
-	// console.log(title);
-
 	// POST request using fetch()
-	fetch(apiUrl + "/wishlist", {
+	fetch(apiUrl + "/api/wishlists", {
 		/**
 		 * The default method for a request with fetch is GET,
 		 * so we must tell it to use the POST HTTP method.
