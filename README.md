@@ -16,6 +16,10 @@ the goal for this project is to learn JavaScript fundamental in real projects
 ![image](https://user-images.githubusercontent.com/51326421/115249780-23ce1d00-a153-11eb-9878-dbb982db065d.png)
 
 
+![image](https://user-images.githubusercontent.com/51326421/116448441-537fd200-a883-11eb-885e-17708b016ff1.png)
+
+
+
 
 
 ![image](https://user-images.githubusercontent.com/51326421/115250659-fcc41b00-a153-11eb-9787-663469b26b81.png)
