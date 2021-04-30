@@ -6,7 +6,7 @@ the goal for this project is to learn JavaScript fundamental in real projects
  ##  <a href="https://netflix-saddam.netlify.app">LIVE DEMO</a>
 
 
-##  <a href="https://netflix-saddam.netlify.app">SEE Netflix Clone API REPO</a>
+##  <a href="https://github.com/saddamarbaa/netflix-clone-api">SEE Netflix Clone API REPO</a>
  
  
  ## <a href="https://nefilx-saddam.herokuapp.com/">LIVE API</a>
