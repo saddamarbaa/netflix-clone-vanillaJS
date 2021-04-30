@@ -1,7 +1,12 @@
 /** @format */
 
 // WishList API
-const apiUrl = process.env.APT_URL || "http://localhost:3000";
+// The API URL
+let apiUrl = "http://localhost:3000";
+
+if (location.href.indexOf("netlify") != -1) {
+	apiUrl = "https://nefilx-saddam.herokuapp.com";
+}
 
 // Bearer Token
 const Bearer = "Bearer " + localStorage.getItem("token");

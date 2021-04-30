@@ -5,7 +5,12 @@ const loginForm = document.getElementById("loginForm");
 // console.log(loginForm);
 
 // The API URL
-const apiUrl = process.env.APT_URL || "http://localhost:3000";
+let apiUrl = "http://localhost:3000";
+
+if (location.href.indexOf("netlify") != -1) {
+	apiUrl = "https://nefilx-saddam.herokuapp.com";
+}
+
 // Bearer Token
 const Bearer = "Bearer " + localStorage.getItem("token");
 
