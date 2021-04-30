@@ -22,7 +22,7 @@
 let registerForm = document.getElementById("registerForm");
 
 // the API URL
-let apiUrl = "http://localhost:3000";
+let apiUrl = process.env.APT_URL || "http://localhost:3000";
 
 /**
  * Event handler for a form submit event.

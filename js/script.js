@@ -1,7 +1,7 @@
 /** @format */
 
 // WishList API
-const apiUrl = "http://localhost:3000";
+const apiUrl = process.env.APT_URL || "http://localhost:3000";
 
 // Bearer Token
 const Bearer = "Bearer " + localStorage.getItem("token");

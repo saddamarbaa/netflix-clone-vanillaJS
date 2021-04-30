@@ -5,7 +5,7 @@ const loginForm = document.getElementById("loginForm");
 // console.log(loginForm);
 
 // The API URL
-const apiUrl = "http://localhost:3000";
+const apiUrl = process.env.APT_URL || "http://localhost:3000";
 // Bearer Token
 const Bearer = "Bearer " + localStorage.getItem("token");
 
