@@ -3,8 +3,17 @@
  ==> Netflix Clone built with Vanilla JavaScript, NodeJs User Authentication, connected to a Netflix Clone API, and MongoDB Database, JSON Web Token(JWT), and local storage It fetches the data from TMDB (The Movie Database) API. It also displays the movie trailers which are fetched from YouTube.
 the goal for this project is to learn JavaScript fundamental in real projects
 
+ ##  <a href="https://netflix-saddam.netlify.app">LIVE DEMO</a>
 
-## SEE Netflix Clone API REPO :  https://github.com/saddamarbaa/netflix-clone-api
+
+##  <a href="https://netflix-saddam.netlify.app">SEE Netflix Clone API REPO</a>
+ 
+ 
+ ## <a href="https://nefilx-saddam.herokuapp.com/">LIVE API</a>
+
+
+##   Testing Email:      testverstion@gmail.com
+##   Testing Password:    12345test
 
 
 
