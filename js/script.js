@@ -327,7 +327,7 @@ const addWishList = (movieId, backdrop_path, title) => {
 
 			alert("new movie is been added to Your Wishlist");
 
-			location.href = "/";
+			// location.href = "/";
 		})
 		.catch((error) => {
 			console.log("Fetch Error :-S", error);
