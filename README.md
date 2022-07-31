@@ -51,9 +51,14 @@ Netflix Clone App built by the power of JavaScript and Node js (a mobile-friendl
 
 # Related_Projects
 
-###  Netflix Clone App built with React Js, Redux, Firestore, Firebase Hosting, with complete user authentication
-####  <a href="https://netflix-clone-80070.web.app">LIVE DEMO</a>
-#### <a href="https://github.com/saddamarbaa/netflix-clone-react"> Github Repo </a>
+###  Netflix Clone App built with React Js, TypeScript, Redux, Firestore, Vercel Hosting, with complete user authentication
+#### <a href="https://github.com/saddamarbaa/netflix-clone-app-react-typescript"> Github Repo </a>
+####  <a href="https://netflix-clone-app-react-typescript.vercel.app/">LIVE DEMO</a>
+
+
+###  Hulu Clone App built with React Js, Next Js, TypeScript, Redux, Tailwind CSS, Vercel Hosting, with complete user authentication
+#### <a href="https://github.com/saddamarbaa/Hulu-clone-app-next.js-typeScript"> Github Repo </a>
+####  <a href="https://hulu-clone-app-nex-js.vercel.app/">LIVE DEMO</a>
 
 
 
